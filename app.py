@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[7]:
 
 
 # train_sentiment_model.py
@@ -40,9 +40,10 @@ with open('model.pkl', 'wb') as f:
 # In[ ]:
 
 
-# app.py
 from flask import Flask, request, jsonify, render_template
 import pickle
+import numpy as np
+import os
 
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
@@ -54,10 +55,10 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.get_json()
-    komentar = data['data']
-    hasil = model.predict([komentar])[0]
-    return jsonify({'result': hasil})
+    prediction = model.predict(np.array([[float(data['data'])]]))
+    return jsonify({'result': prediction[0]})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port)
 
