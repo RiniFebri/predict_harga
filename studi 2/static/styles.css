@@ -1,0 +1,68 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+}
+
+h2 {
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 100%;
+    max-width: 500px;
+    height: 120px;
+    padding: 15px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    resize: none;
+}
+
+/* Button Styling */
+button {
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Result Section */
+p {
+    margin-top: 25px;
+    font-size: 18px;
+    color: #495057;
+}
+
+#result {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    textarea {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+}
